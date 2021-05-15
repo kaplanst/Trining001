@@ -21,6 +21,7 @@ public class justTest {
         driver = new ChromeDriver();
     }
     @Test
+    //just test
         public void blogLinkTest() {
         driver.get("http://exler.ru");
         driver.manage().window().maximize();
