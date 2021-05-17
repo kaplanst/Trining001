@@ -3,6 +3,8 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 public class justTest extends Utils {
 
     @Test
@@ -18,6 +20,14 @@ public class justTest extends Utils {
         driver.findElement(By.xpath("//div[@class='menu']//li[3]")).click();
         String result = driver.getTitle();
         Assert.assertEquals(result, "Кинорецензии");
+    }
+    @Test
+    public void searchTest() {
+        driver.get("https://exler.ru");
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.findElement(By.xpath("//div[@class ='custom-section hidden-sm hidden-xs']//input")).sendKeys("Обама\n");
+        String result = driver.getTitle();
+        Assert.assertEquals(result, "Поиск по сайту");
     }
     @Test
     public void logoTest() {
